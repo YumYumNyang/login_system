@@ -5,6 +5,9 @@ import {
   sendingEmailRequestStart,
   sendingEmailRequestSuccess,
   sendingEmailRequestFailure,
+  emailValidationStart,
+  emailValidationSuccess,
+  emailValidationFailure,
 } from './emailAuth.action';
 interface InitialState {
   emailAuth: {
@@ -16,7 +19,11 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-  emailAuth: null,
+  emailAuth: {
+    email: '',
+    emailAuthenticationId: '',
+    isAuthenticated: false,
+  },
   isSending: false,
 };
 
@@ -39,9 +46,22 @@ const reducer = createReducer(initialState, {
   [sendingEmailRequestFailure.type]: state => {
     state.isSending = false;
   },
+  [emailValidationStart.type]: state => {
+    state.emailAuth.isAuthenticated = true;
+  },
+  [emailValidationSuccess.type]: state => {
+    state.emailAuth.isAuthenticated = true;
+  },
+  [emailValidationFailure.type]: state => {
+    state.emailAuth.isAuthenticated = false;
+  },
 });
 
 export default reducer;
 
 export const selectEmailAuth = (state: RootState) => state.auth.emailAuth;
 export const selectIsEmailAuthSending = (state: RootState) => state.auth.isSending;
+export const selectEmailAuthenticationId = (state: RootState) =>
+  state.auth.emailAuth.emailAuthenticationId;
+export const selectIsAuthenticated = (state: RootState) =>
+  state.auth.emailAuth.isAuthenticated;

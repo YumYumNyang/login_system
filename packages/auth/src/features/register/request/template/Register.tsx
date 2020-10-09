@@ -1,19 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import RequestForm from '../container/Request';
+import RegisterForm from '../container/Register';
 
 const Container = styled.div`
   display: flex;
-  /* height: 100%; */
+  height: 100%;
 `;
 
-const Request = () => {
+const Register = () => {
   return (
     <Container>
-      <RequestForm />
+      <RegisterForm />
     </Container>
   );
 };
 
-export default Request;
+export default Register;

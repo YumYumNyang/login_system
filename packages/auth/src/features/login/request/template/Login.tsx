@@ -1,19 +1,18 @@
 import React from 'react';
+import LoginForm from '../container/Login';
 import styled from 'styled-components';
-
-import RequestForm from '../container/Request';
 
 const Container = styled.div`
   display: flex;
-  /* height: 100%; */
+  height: 100%;
 `;
 
-const Request = () => {
+const Login = () => {
   return (
     <Container>
-      <RequestForm />
+      <LoginForm></LoginForm>
     </Container>
   );
 };
 
-export default Request;
+export default Login;

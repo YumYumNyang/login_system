@@ -12,3 +12,11 @@ export const sendingEmailRequest = (email: string) =>
       email,
     },
   });
+export const emailValidate = (emailAuthenticationId: string, authenticationKey: string) =>
+  makeRequest({
+    method: 'post',
+    url: `/email-authentications/${emailAuthenticationId}/authenticate`,
+    body: {
+      authenticationKey,
+    },
+  });
