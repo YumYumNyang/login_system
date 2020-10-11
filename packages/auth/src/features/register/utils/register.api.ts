@@ -16,12 +16,3 @@ export const sendingRegisterRequest = (
       emailAuthenticationId,
     },
   });
-
-export const emailExistence = (email: string) =>
-  makeRequest({
-    method: 'post',
-    url: `/uses/emails/${email}/existence`,
-    body: {
-      email,
-    },
-  });

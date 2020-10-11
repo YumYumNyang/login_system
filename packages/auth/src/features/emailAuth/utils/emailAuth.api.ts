@@ -20,3 +20,10 @@ export const emailValidate = (emailAuthenticationId: string, authenticationKey: 
       authenticationKey,
     },
   });
+
+export const emailExistence = (email: string) =>
+  makeRequest({
+    method: 'get',
+    url: `/users/emails/${email}/existence`,
+    body: {},
+  });

@@ -23,18 +23,22 @@ const Container = styled.div`
 `;
 
 const Form = styled.div`
-  min-width: 320px;
-  max-width: 640px;
+  width: 300px;
 `;
 
 const EmailInput = styled(Input)`
-  height: 40px;
+  width: 300px;
+  height: 60px;
   margin-bottom: 12px;
 `;
 
 const AuthenticateButton = styled(Button)`
-  height: 40px;
+  width: 300px;
+  height: 50px;
   margin-bottom: 12px;
+  color: white;
+  background-color: #1968fc;
+  font-weight: bold;
 `;
 
 const Request = () => {

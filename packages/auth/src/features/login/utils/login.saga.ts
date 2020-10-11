@@ -1,4 +1,5 @@
-import { takeEvery, call, put, all, delay } from 'typed-redux-saga';
+import { takeEvery, call, put, all, delay, race } from 'typed-redux-saga';
+
 import Router from 'next/router';
 import {
   sendingLoginRequestSuccess,
@@ -15,8 +16,7 @@ function save(token) {
 function* sendLoginSaga(action: ReturnType<typeof sendingLoginRequestStart>) {
   try {
     const { email, password } = action.payload;
-    const token = yield call(sendingLoginRequest, email, password);
-    console.log(token);
+    const { token } = yield* call(sendingLoginRequest, email, password);
     yield save(token);
     yield put(sendingLoginRequestSuccess(email, password));
     yield delay(3000);

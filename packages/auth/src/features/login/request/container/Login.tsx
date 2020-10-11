@@ -4,6 +4,7 @@ import { Input, Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoginSending } from '../../utils/login.reducer';
 import { sendingLoginRequestStart } from '../../utils/login.action';
+import Logo from '../../../main/components/header/Logo';
 
 const Container = styled.div`
   display: flex;
@@ -15,17 +16,21 @@ const Container = styled.div`
 `;
 
 const Form = styled.div`
-  min-width: 320px;
-  max-width: 640px;
+  width: 300px;
 `;
 
 const LoginInput = styled(Input)`
-  height: 40px;
+  width: 300px;
+  height: 60px;
   margin-bottom: 12px;
 `;
 
 const LoginButton = styled(Button)`
-  height: 40px;
+  height: 50px;
+  color: white;
+  background-color: #1968fc;
+  font-weight: bold;
+  width: 300px;
 `;
 
 const Login = () => {
@@ -45,6 +50,7 @@ const Login = () => {
   }
   return (
     <Container>
+      <Logo />
       {isSending ? (
         <span>로그인 완료!</span>
       ) : (

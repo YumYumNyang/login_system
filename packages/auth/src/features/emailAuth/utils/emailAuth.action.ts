@@ -39,3 +39,19 @@ export const emailValidationFailure = createAction(
     return { payload: null };
   },
 );
+
+export const emailIsExistStart = createAction(
+  'emailAuth/emailIsExistStart',
+  (email: string) => {
+    return { payload: email };
+  },
+);
+export const emailIsExistSuccess = createAction(
+  'emailAuth/emailIsExistSuccess',
+  (existence: boolean) => {
+    return { payload: existence };
+  },
+);
+export const emailIsExistFailure = createAction('emailAuth/emailIsExistFailure', () => {
+  return { payload: null };
+});
